@@ -1,16 +1,15 @@
 import React, {useEffect, useContext} from 'react'
-import {fetchGetData} from '../apis/index'
+import {fetchGetTodoData} from '../apis/index'
 import { Store } from '../store/index'
-import { GET_DATA } from '../actions/index'
-import Card from '../components/Card'
-import {} from '@material-ui/core'
+import { GET_TODODATA } from '../actions/index'
+import CardSecond from '../components/CardSecond'
  
 const SecondPage = () => {
     const {globalState, setGlobalState} = useContext(Store)
     useEffect(() => {
-        fetchGetData().then(res => {
+        fetchGetTodoData().then(res => {
             setGlobalState({
-            type: GET_DATA,
+            type: GET_TODODATA,
             data: res.data
         })
     })
@@ -19,9 +18,9 @@ console.log(globalState)
 return(
 <div style={{display: 'flex',flexWrap:'wrap'}}>
 {
-    globalState.user_data.map((user, index) => {
+    globalState.comment_data.map((comment, index) => {
     return (
-        <Card user={user} key={index} />
+        <CardSecond comment={comment} key={index} />
         )
     })
     }

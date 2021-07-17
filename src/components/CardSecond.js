@@ -24,26 +24,23 @@ const useStyles = makeStyles({
     },
 });
 
-export default function SimpleCard({user}) {
+export default function SimpleCardSecond({comment}) {
     const classes = useStyles();
 
     return (
         <Card className={classes.root}>
         <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-            ID : {user.id}
+            ID : {comment.id}
             </Typography>
             <Typography variant="h5" component="h2">
-            Name : {user.name}  
+            Name : {comment.name}  
             </Typography> 
             <Typography className={classes.pos} color="textSecondary">
-            NickName : {user.username}
+            Email : {comment.email}
             </Typography>
             <Typography variant="body2" component="p">
-            email : {user.email}
-            </Typography>
-            <Typography variant="body2" component="p">
-            zip-code : {user.address.zipcode}
+            Body : {comment.body}
             </Typography>
         </CardContent>
         </Card>
